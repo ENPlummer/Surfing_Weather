@@ -21,10 +21,28 @@ app = Flask(__name__)
 
 app.config['sql_db'] = os.environ['sql_db']
 
-weather_db = SQLAlchemy(app)
+weather_db = 'sql_db'
 
-Measurements = weather_db.measurements
-Stations = weather_db.stations
+#SQL Alchemy Model
+
+class Measurements(weather_db.Model):
+    __tablename__ = "measurements"
+    id = Column(weather_db.Integer, primary_key = True)
+    station = weather_db.Column(weather_db.Unicode(255))
+    date = weather_db.Column(weather_db.Unicode(255))
+    prcp = weather_db.Column(weather_db.Float)
+    tobs = weather_db.Column(weather_db.Float)
+
+class Stations(weather_db.Model):
+	__tablename__ = "stations"
+	id = Column(weather_db.Integer, primary_key = True)
+    station = weather_db.Column(weather_db.Unicode(255))
+    name = weather_db.Column(weather_db.Unicode(255))
+    latitude = weather_db.Column(weather_db.Float)
+    longitude = weather_db.Column(weather_db.Float)
+    elevation = weather_db.Column(weather_db.Float)
+    location = weather_db.Column(weather_db.Float)
+
 
 @app.route("/")
 def home():
