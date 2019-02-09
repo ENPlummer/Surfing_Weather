@@ -4,7 +4,7 @@ from flask import Flask, render_template, redirect, jsonify
 #dependencies
 from flask import Flask, request
 from flask_sqlalchemy import SQLAlchemy
-import sqlachemy
+import sqlalchemy
 
 import pandas as pd
 import numpy as np
