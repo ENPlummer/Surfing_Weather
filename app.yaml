@@ -4,9 +4,15 @@
 
 runtime: python
 env: flex
+entrypoint: gunicorn -b :$PORT main:app
 
 runtime_config:
   python_version: 3
+
+env_variables: 
+  sql_db: >-
+    mysql+pymysql://root:root@/surfing_weather?unix_socket=/cloudsql/surfs-up-enp:us-east4:hawaii-weather
+
 
 beta_settings:
   cloud_sql_instances: surfs-up-enp:us-east4:hawaii-weather

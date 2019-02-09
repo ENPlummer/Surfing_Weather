@@ -21,17 +21,14 @@ app = Flask(__name__)
 # managing a pool of connections to your database
 
 Base = declarative_base()
-dbFilePath = 'mysql+pymysql://root:root@/surfing_weather-weather?unix_socket=/cloudsql/surfs-up-enp:us-east4:hawaii-weather'
+app.config['sql_db'] = os.environ['sql_db']
 engine = create_engine(dbFilePath, echo=False)
-sessionMaker = sessionmaker(bind=engine)
-session = sessionMaker()
-
-Base = automap_base()
-Base.prepare(engine, reflect=True)
 
 
-Measurements = Base.measurements
-Stations = Base.stations
+weather_db = SQLAlchemy(app)
+
+Measurements = weather_db.measurements
+Stations = weather_db.stations
 
 @app.route("/")
 def home():
