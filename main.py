@@ -26,22 +26,22 @@ weather_db = 'sql_db'
 #SQL Alchemy Model
 
 class Measurements(weather_db.Model):
-    __tablename__ = "measurements"
-    id = Column(weather_db.Integer, primary_key = True)
-    station = weather_db.Column(weather_db.string(255))
-    date = weather_db.Column(weather_db.string(255))
-    prcp = weather_db.Column(weather_db.float)
-    tobs = weather_db.Column(weather_db.float)
+	__tablename__ = "measurements"
+	id = Column(weather_db.Integer, primary_key = True)
+	station = weather_db.Column(weather_db.string(255))
+	date = weather_db.Column(weather_db.string(255))
+	prcp = weather_db.Column(weather_db.float)
+	tobs = weather_db.Column(weather_db.float)
 
 class Stations(weather_db.Model):
 	__tablename__ = "stations"
 	id = Column(weather_db.Integer, primary_key = True)
-    station = weather_db.Column(weather_db.string(255))
-    name = weather_db.Column(weather_db.string(255))
-    latitude = weather_db.Column(weather_db.float)
-    longitude = weather_db.Column(weather_db.float)
-    elevation = weather_db.Column(weather_db.float)
-    location = weather_db.Column(weather_db.float)
+	station = weather_db.Column(weather_db.string(255))
+	name = weather_db.Column(weather_db.string(255))
+	latitude = weather_db.Column(weather_db.float)
+	longitude = weather_db.Column(weather_db.float)
+	elevation = weather_db.Column(weather_db.float)
+	location = weather_db.Column(weather_db.float)
 
 
 @app.route("/")
