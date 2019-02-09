@@ -2,16 +2,15 @@ from flask import Flask, render_template, redirect, jsonify
 
 
 #dependencies
-import sqlalchemy
-from sqlalchemy.ext.automap import automap_base
-from sqlalchemy.orm import Session
-from sqlalchemy import create_engine
-from sqlalchemy import func
+from flask import Flask, request
+from flask_sqlalchemy import SQLAlchemy
+import sqlachemy
 
 import pandas as pd
 import numpy as np
 import datetime
 import os
+import socket
 
 
 app = Flask(__name__)
