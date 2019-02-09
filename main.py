@@ -20,10 +20,7 @@ app = Flask(__name__)
 # The SQLAlchemy engine will help manage interactions, including automatically
 # managing a pool of connections to your database
 
-Base = declarative_base()
 app.config['sql_db'] = os.environ['sql_db']
-engine = create_engine(dbFilePath, echo=False)
-
 
 weather_db = SQLAlchemy(app)
 
