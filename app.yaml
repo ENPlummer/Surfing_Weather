@@ -1,0 +1,12 @@
+# This file specifies your Python application's runtime configuration.
+# See https://cloud.google.com/appengine/docs/managed-vms/python/runtime
+# for details.
+
+runtime: python
+env: flex
+
+runtime_config:
+  python_version: 3
+
+beta_settings:
+  cloud_sql_instances: surfs-up-enp:us-east4:hawaii-weather
