@@ -29,10 +29,10 @@ db = SQLAlchemy(app)
 class Measurements(db.Model):
 	__tablename__ = "Measurements"
 	id = db.Column(db.Integer, primary_key = True)
-	station = db.Column(db.string(255))
-	date = db.Column(db.string(255))
-	prcp = db.Column(db.float)
-	tobs = weather_db.Column(weather_db.float)
+	station = db.Column(db.String(255))
+	date = db.Column(db.String(255))
+	prcp = db.Column(db.Float)
+	tobs = db.Column(db.Float)
 
 	def __init__(self, station, date, prcp, tobs):
 		self.station = station
@@ -43,12 +43,12 @@ class Measurements(db.Model):
 class Stations(db.Model):
 	__tablename__ = "Stations"
 	id = db.Column(db.Integer, primary_key = True)
-	station = db.Column(wdb.string(255))
-	name = db.Column(db.string(255))
-	latitude = db.Column(db.float)
-	longitude = db.Column(db.float)
-	elevation = db.Column(db.float)
-	location = db.Column(db.float)
+	station = db.Column(wdb.String(255))
+	name = db.Column(db.String(255))
+	latitude = db.Column(db.Float)
+	longitude = db.Column(db.Float)
+	elevation = db.Column(db.Float)
+	location = db.Column(db.Float)
 
 	def __init__(self, station, name,latitude, longitude, elevation, location):
 		self.station = station
