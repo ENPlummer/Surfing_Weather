@@ -5,6 +5,7 @@ from flask import Flask, render_template, redirect, jsonify
 from flask import Flask, request
 from flask_sqlalchemy import SQLAlchemy
 import sqlalchemy
+from sqlalchemy import model
 
 import pandas as pd
 import numpy as np
@@ -21,27 +22,27 @@ app = Flask(__name__)
 
 app.config['sql_db'] = os.environ['sql_db']
 
-weather_db = 'sql_db'
+db = 'sql_db'
 
 #SQL Alchemy Model
 
-class Measurements(weather_db.Model):
-	__tablename__ = "measurements"
-	id = Column(weather_db.Integer, primary_key = True)
-	station = weather_db.Column(weather_db.string(255))
-	date = weather_db.Column(weather_db.string(255))
-	prcp = weather_db.Column(weather_db.float)
+class Measurements(db.Model):
+	__tablename__ = "Measurements"
+	id = db.Column(db.Integer, primary_key = True)
+	station = db.Column(db.string(255))
+	date = db.Column(db.string(255))
+	prcp = db.Column(db.float)
 	tobs = weather_db.Column(weather_db.float)
 
-class Stations(weather_db.Model):
-	__tablename__ = "stations"
-	id = Column(weather_db.Integer, primary_key = True)
-	station = weather_db.Column(weather_db.string(255))
-	name = weather_db.Column(weather_db.string(255))
-	latitude = weather_db.Column(weather_db.float)
-	longitude = weather_db.Column(weather_db.float)
-	elevation = weather_db.Column(weather_db.float)
-	location = weather_db.Column(weather_db.float)
+class Stations(db.Model):
+	__tablename__ = "Stations"
+	id = db.Column(db.Integer, primary_key = True)
+	station = db.Column(wdb.string(255))
+	name = db.Column(db.string(255))
+	latitude = db.Column(db.float)
+	longitude = db.Column(db.float)
+	elevation = db.Column(db.float)
+	location = db.Column(db.float)
 
 
 @app.route("/")
