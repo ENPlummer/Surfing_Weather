@@ -10,7 +10,7 @@ runtime_config:
   python_version: 3
 
 env_variables: 
-  sql_db: >-
+  SQLALCHEMY_DATABASE_URI: >-
     mysql+pymysql://root:root@/surfing_weather?unix_socket=/cloudsql/surfs-up-enp:us-east4:hawaii-weather
 
 
