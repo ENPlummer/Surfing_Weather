@@ -43,7 +43,7 @@ class Measurements(db.Model):
 class Stations(db.Model):
 	__tablename__ = "Stations"
 	id = db.Column(db.Integer, primary_key = True)
-	station = db.Column(wdb.String(255))
+	station = db.Column(db.String(255))
 	name = db.Column(db.String(255))
 	latitude = db.Column(db.Float)
 	longitude = db.Column(db.Float)
