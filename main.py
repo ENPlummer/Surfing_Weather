@@ -22,7 +22,7 @@ app = Flask(__name__)
 
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['SQLALCHEMY_DATABASE_URI']
 
-db = 'sql_db'
+db = SQLAlchemy(app)
 
 #SQL Alchemy Model
 
@@ -57,8 +57,6 @@ class Stations(db.Model):
 		self.longitude = longitude
 		self.elevation = elevation
 		self.location = location
-
-db.create_all()
 
 @app.route("/")
 def home():
